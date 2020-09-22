@@ -1,16 +1,16 @@
 <body>
-
 <h1>Post#index</h1>
 <p>Find me in app/views/post/index.html.erb</p>
 <div>안녕하세요 인덱스 페이지에요</div>
+<div><%= link_to '새글작성', new_post_path %></div>
 <p>
     <% @posts.each do |post| %>
         <div> <%= post.title %> </div>
+        <div> <%= post.created_ymd %> </div>
         <div> <%= post.user_id %> </div>
         <div> <%= post.content %> </div>
+        <%= link_to '상세보기', post_path(post) %>
+        <%= link_to '수정하기', edit_post_path(post) %>
     <% end %>
 </p>
-
-
-
 </body>
