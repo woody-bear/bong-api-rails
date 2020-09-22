@@ -1,2 +1,16 @@
+<body>
+
 <h1>Post#index</h1>
 <p>Find me in app/views/post/index.html.erb</p>
+<div>안녕하세요 인덱스 페이지에요</div>
+<p>
+    <% @posts.each do |post| %>
+        <div> <%= post.title %> </div>
+        <div> <%= post.user_id %> </div>
+        <div> <%= post.content %> </div>
+    <% end %>
+</p>
+
+
+
+</body>

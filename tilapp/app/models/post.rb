@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    self.table_name = "post"
+    self.table_name = "posts"
     # user_id 작성자id
     # title 제목
     # content 내용
