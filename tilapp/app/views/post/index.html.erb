@@ -9,6 +9,7 @@
         <div> <%= post.created_ymd %> </div>
         <div> <%= post.user_id %> </div>
         <div> <%= post.content %> </div>
+        <div> 생성일 <%= post.created_ymd %> </div>
         <%= link_to '상세보기', post_path(post) %>
         <%= link_to '수정하기', edit_post_path(post) %>
     <% end %>
