@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_213622) do
+ActiveRecord::Schema.define(version: 2020_09_28_160550) do
 
   create_table "posts", primary_key: "til_id", force: :cascade do |t|
     t.string "user_id"
     t.string "title"
     t.text "content"
-    t.integer "created_at_sub"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "use_yn", limit: 2, default: "Y"
   end
 
 end
