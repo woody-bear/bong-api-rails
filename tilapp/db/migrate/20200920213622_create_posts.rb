@@ -4,8 +4,8 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :user_id, comment: '작성자id'
       t.string :title, comment: '제목'
       t.text :content, comment: '내용'
-      t.datetime :created_ymd, comment: '작성일'
-      t.datetime :updated_ymd, comment: '수정일'
+      t.integer :created_at_sub, comment: 'datetime 형식 대용'
+      t.timestamps
     end
   end
 end
