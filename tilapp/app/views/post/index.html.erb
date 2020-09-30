@@ -1,4 +1,5 @@
 <head>
+
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -9,25 +10,63 @@
       ga('send', 'pageview'); // pageview 전용
 
   </script>
+
+  <style>
+    a:link {text-decoration: none; color: midnightblue;}
+    a:visited {text-decoration: none; color: midnightblue;}
+    a:active {text-decoration: none; color: midnightblue;}
+    a:hover {text-decoration: none; color: midnightblue;}
+
+    header{
+      border: 1px solid #730E15;
+        padding: 10px;
+    }
+
+    .btn{
+        border: 1px solid chocolate;
+        padding: 2px;
+    }
+
+    article{
+        border: 1px solid saddlebrown ;
+        border-radius: 10px;
+        margin: 10px 5px;
+        padding: 10px 5px;
+    }
+
+    .article_controler{
+        /*border: 1px solid palevioletred;*/
+        margin: 5px 0 5px 0;
+    }
+  </style>
+
 </head>
 <body>
+    <header>
+      <span><%= link_to '새글작성', new_post_path %></span>
+    </header>
 
 
-<h1>글목록</h1>
 
-<div><%= link_to '새글작성', new_post_path %></div>
-<p>
     <% @posts.each do |post| %>
-    <div class="main">
-        <div> <%= post.til_id %> </div>
-        <div> <%= post.title %> </div>
-        <div> <%= post.user_id %> </div>
-        <div>  <%= sanitize post.content %> </div>
-        <div> 생성일 <%= post.created_at&.strftime('%Y-%m-%d') %> </div>
-        <%= link_to '상세보기', post_path(post) %>
-        <%= link_to '수정하기', edit_post_path(post) %>
-        <%= link_to '삭제하기', post_path(post), method: "delete" %>
-    </div>
+    <article>
+      <div class="article_controler">
+        <%= link_to '상세보기', post_path(post), class: 'btn' %>
+        <%= link_to '수정하기', edit_post_path(post), class: 'btn'  %>
+        <%= link_to '삭제하기', post_path(post), method: "delete", class: 'btn'  %>
+      </div>
+
+      <div> <%= post.til_id %> </div>
+      <div> <%= post.title %> </div>
+      <div> <%= post.user_id %> </div>
+      <div>  <%= sanitize post.content %> </div>
+      <div> 생성일 <%= post.created_at&.strftime('%Y-%m-%d') %> </div>
+    </article>
     <% end %>
-</p>
+
+    <footer>
+      <div>2020.10.01</div>
+    </footer>
+
+
 </body>
