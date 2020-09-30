@@ -1,7 +1,6 @@
 class PostController < ApplicationController
   def index
     @posts = Post.all.where(use_yn: "Y").order(til_id: :desc)
-    # return render json: {}
   end
 
   def show
@@ -15,6 +14,7 @@ class PostController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
+
   def create
     @post = Post.new(post_params)
     @post.created_at = Time.now
@@ -36,18 +36,24 @@ class PostController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-
-    # def use_yn
-    #   @post = Post.find(params[:id])
-    #   respond_to do |format|
-    #     @post.use_yn = 'N'
-    #     @post.save
-    #     return redirect_to post_index_path
-    #   end
-    # end
-
-
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    return redirect_to post_index_path
+  end
+
+  # sqlite로 최소한의 db 사용하기 위해 글을 삭제하는 엑션으로 사용
+  # def use_yn
+  #     @post = Post.find(params[:id])
+  #     respond_to do |format|
+  #       @post.use_yn = 'N'
+  #       @post.save
+  #       return redirect_to post_index_path
+  #     end
+  # end
+
 
   private
     def post_params
