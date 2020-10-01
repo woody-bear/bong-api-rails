@@ -18,14 +18,24 @@
     a:hover {text-decoration: none; color: midnightblue;}
 
     header{
-      border: 1px solid #730E15;
+        margin: 10px 5px;
+        padding: 10px 5px;
+        border: 1px solid #730E15;
         padding: 10px;
     }
 
-    .btn{
-        border: 1px solid chocolate;
-        padding: 2px;
+    section {
+        margin: 10px 5px;
+        padding: 10px 5px;
+        border: 1px solid black;
+        border-radius: 10px;
     }
+
+    .section_title {
+
+        font-size: 40px;
+    }
+
 
     article{
         border: 1px solid saddlebrown ;
@@ -34,9 +44,25 @@
         padding: 10px 5px;
     }
 
+    .btn{
+        border: 1px solid chocolate;
+        padding: 2px;
+    }
+
     .article_controler{
         /*border: 1px solid palevioletred;*/
         margin: 5px 0 5px 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    footer {
+        border: 1px solid saddlebrown ;
+        border-radius: 5px;
+        margin: 10px 5px;
+        padding: 10px 5px;
     }
   </style>
 
@@ -47,7 +73,9 @@
     </header>
 
 
-
+    <section>
+      <span class="section_title">nas는 사랑입니다</span>
+    </section>
     <% @posts.each do |post| %>
     <article>
       <div class="article_controler">
@@ -64,9 +92,7 @@
     </article>
     <% end %>
 
-    <footer>
-      <div>2020.10.01</div>
-    </footer>
+
 
 
 </body>

@@ -44,6 +44,8 @@
             tabsize: 2,
             height: 450,
             lang: 'ko-KR',
+            prettifyHtml : false
+            // 이미지 처리를 위한 콜백
             // callbacks: {
             //     onImageUpload: function(files) {
             //         for (var i = 0; i < files.length; i++) {
@@ -69,7 +71,7 @@
 
     <%= f.label :CONT, '내용', class: 'col-sm-2 col-form-label' %>
     <div>
-      <textarea name="post[content]" id="post_content" rows="10" class="form-control"></textarea>
+      <textarea name="post[content]" id="post_content" rows="10" class="form-control"><%= @post.content %></textarea>
     </div>
   </div>
   <div>
@@ -77,4 +79,7 @@
   </div>
 
 <% end %>
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
