@@ -81,10 +81,12 @@
       <div class="article_controler">
         <%= link_to '상세보기', post_path(post), class: 'btn' %>
         <%= link_to '수정하기', edit_post_path(post), class: 'btn'  %>
-        <%= link_to '삭제하기', post_path(post), method: "delete", class: 'btn'  %>
+        <%= link_to "삭제하기", use_yn_post_path(post), class: 'btn' %>
+
+
       </div>
 
-      <div> <%= post.til_id %> </div>
+      <div> <%= post.til_id %>(<%= post.use_yn %>) </div>
       <div> <%= post.title %> </div>
       <div> <%= post.user_id %> </div>
       <div>  <%= sanitize post.content %> </div>
