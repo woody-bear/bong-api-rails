@@ -42,7 +42,7 @@
   <div>
     <%= f.label :CONT, '내용', class: 'col-sm-2 col-form-label' %>
     <div>
-      <textarea name="post[content]" id="post_content" rows="10" class="form-control"><%= @post.content %></textarea>
+      <textarea name="post[content]" id="post_content" rows="10" class="form-control"><%= @post&.content %></textarea>
     </div>
   </div>
   <div>
