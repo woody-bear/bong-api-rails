@@ -18,24 +18,22 @@
     a:hover {text-decoration: none; color: midnightblue;}
 
     header{
+        font-size: 50px;
         margin: 10px 5px;
         padding: 10px 5px;
         border: 1px solid #730E15;
-        padding: 10px;
     }
 
     section {
-        margin: 10px 5px;
-        padding: 10px 5px;
         border: 1px solid black;
         border-radius: 10px;
     }
 
     .section_title {
-
+        margin: 10px 5px;
+        padding: 50px 5px;
         font-size: 40px;
     }
-
 
     article{
         border: 1px solid saddlebrown ;
@@ -69,23 +67,15 @@
 </head>
 <body>
     <header>
-      <span><%= link_to '새글작성', new_post_path %></span>
+      🐜 개미개발일지
     </header>
-
-
-    <section>
-      <span class="section_title">nas는 사랑입니다</span>
+    <section class="section_title">
+      <p>가장 호사스러운 웹 호스팅 ( 시놀로지 나스와 docker 를 이용한 홈 웹 호스팅 )</p>
+      <h4>카테고리 생성일 2020.10.04 </h4>
     </section>
     <% @posts.each do |post| %>
     <article>
       <div class="article_controler">
-        <% if post.use_yn == 'Y' %>
-          <%= link_to "미노출", toggle_use_yn_post_path(post), class: 'btn' %>
-        <% else %>
-          <%= link_to "노출", toggle_use_yn_post_path(post), class: 'btn' %>
-        <% end %>
-        <%= link_to '상세보기', post_path(post), class: 'btn' %>
-        <%= link_to '수정하기', edit_post_path(post), class: 'btn'  %>
       </div>
       <div> <%= post.til_id %>(<%= post.use_yn %>) </div>
       <div><img src="<%= post&.thumbnail_image %>" alt=""> </div>
@@ -95,8 +85,4 @@
       <div> 생성일 <%= post.created_at&.strftime('%Y-%m-%d') %> </div>
     </article>
     <% end %>
-
-
-
-
 </body>

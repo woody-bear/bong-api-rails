@@ -25,6 +25,7 @@
         padding: 10px 5px;
     }
 </style>
-<%= link_to "뒤로", :back , class: 'btn'%>
-<h1>새글작성</h1>
-<%= render 'form', url: post_index_path%>
+
+<%= link_to "Back", :back , class: "btn" %>
+<header>수정하기</header>
+<%= render 'form', url: post_admin_path %>

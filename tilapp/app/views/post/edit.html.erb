@@ -1,3 +1,31 @@
-<%= link_to "Back", :back %>
-<h1>수정하기</h1>
+<style>
+    .btn{
+        border: 1px solid chocolate;
+        margin: 10px 5px;
+    }
+    header {
+        border: 1px solid saddlebrown ;
+        border-radius: 5px;
+        margin: 10px 5px;
+        padding: 10px 5px;
+    }
+    form {
+        border: 1px solid saddlebrown ;
+        border-radius: 5px;
+        margin: 10px 5px;
+        padding: 10px 5px;
+    }
+    li {
+        list-style: none;
+    }
+    footer {
+        border: 1px solid saddlebrown ;
+        border-radius: 5px;
+        margin: 10px 5px;
+        padding: 10px 5px;
+    }
+</style>
+
+<%= link_to "Back", :back , class: "btn" %>
+<header>수정하기</header>
 <%= render 'form', url: post_path %>

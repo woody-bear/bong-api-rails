@@ -1,0 +1,14 @@
+
+<div>현재 글 번호<%= @post.til_id %></div>
+
+
+<div>이전 글 번호
+  <% if @prev_post_id.present? %>
+    <%= link_to '이전글', post_admin_path(@prev_post_id) %>
+  <% end %>
+</div>
+<div>다음 글 번호
+  <% if @next_post_id.present? %>
+    <%= link_to '다음글', post_admin_path(@next_post_id) %>
+  <% end %>
+</div>
