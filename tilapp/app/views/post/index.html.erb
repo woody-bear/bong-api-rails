@@ -79,14 +79,16 @@
     <% @posts.each do |post| %>
     <article>
       <div class="article_controler">
+        <% if post.use_yn == 'Y' %>
+          <%= link_to "미노출", toggle_use_yn_post_path(post), class: 'btn' %>
+        <% else %>
+          <%= link_to "노출", toggle_use_yn_post_path(post), class: 'btn' %>
+        <% end %>
         <%= link_to '상세보기', post_path(post), class: 'btn' %>
         <%= link_to '수정하기', edit_post_path(post), class: 'btn'  %>
-        <%= link_to "삭제하기", use_yn_post_path(post), class: 'btn' %>
-
-
       </div>
-
       <div> <%= post.til_id %>(<%= post.use_yn %>) </div>
+      <div><img src="<%= post&.thumbnail_image %>" alt=""> </div>
       <div> <%= post.title %> </div>
       <div> <%= post.user_id %> </div>
       <div>  <%= sanitize post.content %> </div>

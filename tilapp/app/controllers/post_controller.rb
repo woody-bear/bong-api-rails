@@ -38,10 +38,19 @@ class PostController < ApplicationController
     end
   end
 
-  def use_yn
+  def toggle_use_yn
       @post = Post.find(params[:id])
-      respond_to do |format|
-        @post.use_yn = 'N'
+      # debugger
+      if @post.use_yn == 'Y'
+        # debugger
+        # @post.update(use_yn: "N")
+        @post.use_yn='N'
+        @post.save
+        # debugger
+        return redirect_to post_index_path
+      else
+        @post.update(use_yn: "Y")
+        @post.use_yn='Y'
         @post.save
         return redirect_to post_index_path
       end
@@ -49,6 +58,6 @@ class PostController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:user_id, :title, :content )
+      params.require(:post).permit(:user_id, :title, :content, :thumbnail_image )
     end
 end

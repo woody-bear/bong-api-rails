@@ -1,61 +1,28 @@
 <script>
-    // function image_upload(file, onSuccess, error) {
-    //     var upload_path = '/upload/image';
-    //     var upload_http_method = 'post';
-    //
-    //     var call = $.ajax(image_upload_request_param(file));
-    //     call.fail(error || console.warn);
-    //
-    //     function image_upload_request_param(file) {
-    //         console.log(file);
-    //         var formData = new FormData();
-    //         console.log(formData);
-    //         formData.append('image', file);
-    //         console.log(formData);
-    //         return {
-    //             url: upload_path,
-    //             type: upload_http_method,
-    //             processData: false,  // file전송시 필수
-    //             contentType: false,  // file전송시 필수
-    //             data: formData
-    //         }
-    //     }
-    //
-    //     if (onSuccess) {
-    //         call.success(onSuccess);
-    //     } else {
-    //         return call;
-    //     }
-    // }
-    //
-    // function image_uploaded_callback(note_context) {
-    //     return function(data) {
-    //         console.log(data);
-    //         var image_node = document.createElement('img');
-    //         image_node.src = data.img_url;
-    //         note_context.summernote('insertNode', image_node);
-    //     }
-    // }
 
-    $(document).ready(function() {
-        var note = $('#post_content');
-        note.summernote({
-            placeholder: '내용을 입력해주세요',
-            tabsize: 2,
-            height: 450,
-            lang: 'ko-KR',
-            prettifyHtml : false
-            // 이미지 처리를 위한 콜백
-            // callbacks: {
-            //     onImageUpload: function(files) {
-            //         for (var i = 0; i < files.length; i++) {
-            //             console.log(files[i], note);
-            //             image_upload(files[i], image_uploaded_callback(note))
-            //         }
-            //     }
-            // }
-        });
-    });
+      $(document).ready(function() {
+          var note = $('#post_content');
+          note.summernote({
+              placeholder: '내용을 입력해주세요',
+              tabsize: 2,
+              height: 450,
+              lang: 'ko-KR',
+              toolbar: [
+              // [groupName, [list of button]]
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+              ['color', ['forecolor','color']],
+              ['table', ['table']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['height', ['height']],
+              ['insert',['picture','link','video']],
+              ['view', ['fullscreen', 'help']]
+            ],
+            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
+            fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+          });
+      });
 </script>
 <%= form_with model: @post, url: url, locale: true do |f| %>
   <div>
@@ -66,9 +33,13 @@
     <%= f.label :title, '제목'%>
     <div><%= f.text_field :title %></div>
   </div>
+  <div>
+    <%= f.label :thumbnail_image, '썸네일이미지' %>
+    <div><%= f.file_field :thumbnail_image %></div>
+  </div>
+
 
   <div>
-
     <%= f.label :CONT, '내용', class: 'col-sm-2 col-form-label' %>
     <div>
       <textarea name="post[content]" id="post_content" rows="10" class="form-control"><%= @post.content %></textarea>
