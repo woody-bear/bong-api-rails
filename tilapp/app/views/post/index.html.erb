@@ -83,6 +83,7 @@
       <div> <%= post.user_id %> </div>
       <div>  <%= sanitize post.content %> </div>
       <div> 생성일 <%= post.created_at&.strftime('%Y-%m-%d') %> </div>
+      <div> <%= link_to '상세보기', post_path(post), class: 'btn' %></div>
     </article>
     <% end %>
 </body>

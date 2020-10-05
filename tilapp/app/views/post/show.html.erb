@@ -1,11 +1,13 @@
   <%= link_to "Back", :back %>
   <%= link_to '목록보기', post_index_path %>
   <div>상세보기</div>
+  <div><img src="<%= @post&.thumbnail_image %>" alt=""></div>
   <div><%= @post.til_id %></div>
   <div><%= @post.created_at %></div>
   <div>작성자: <%= @post.user_id %></div>
   <div>제목: <%= @post.title %></div>
   <div><%= sanitize @post.content %></div>
+
 
   <span>
     <% if @prev_post_id.present?  %>
