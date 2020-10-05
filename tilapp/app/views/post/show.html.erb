@@ -1,29 +1,33 @@
   <%= link_to "Back", :back %>
   <%= link_to '목록보기', post_index_path %>
-  <div>상세보기</div>
-  <div><img src="<%= @post&.thumbnail_image %>" alt=""></div>
-  <div><%= @post.til_id %></div>
-  <div><%= @post.created_at %></div>
-  <div>작성자: <%= @post.user_id %></div>
-  <div>제목: <%= @post.title %></div>
-  <div><%= sanitize @post.content %></div>
+  <header>
+    상세보기
+  </header>
+  <section>
+    <img src="<%= @post&.thumbnail_image %>" alt=""></div>
+  </section>
+  <section>
+    <%= @post.title %>
+  </section>
+  <article>
+    <div><%= @post.til_id %></div>
+    <div><%= @post.created_at.strftime('%Y-%m-%d') %></div>
+    <div>작성자: <%= @post.user_id %></div>
 
-
-  <span>
-    <% if @prev_post_id.present?  %>
-      <%= link_to '이전글', post_path(@prev_post_id) %>
-    <% end %>
-
-
-  </span>
-  <span>
-
-    <% if @next_post_id.present?  %>
-      <%= link_to '다음글', post_path(@next_post_id) %>
-    <% end %>
-
-
-  </span>
+    <div><%= sanitize @post.content %></div>
+  </article>
+  <section>
+    <span>
+      <% if @prev_post_id.present?  %>
+        <%= link_to '이전글', post_path(@prev_post_id) %>
+      <% end %>
+    </span>
+      <span>
+      <% if @next_post_id.present?  %>
+        <%= link_to '다음글', post_path(@next_post_id) %>
+      <% end %>
+    </span>
+  </section>
 
 
 
