@@ -14,7 +14,7 @@
     <div><%= @post.created_at.strftime('%Y-%m-%d') %></div>
     <div>작성자: <%= @post.user_id %></div>
 
-    <div><%= sanitize @post.content %></div>
+    <div><%= @post.content.html_safe %></div>
   </article>
   <section>
     <span>
