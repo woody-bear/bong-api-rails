@@ -43,6 +43,10 @@
           padding: 10px 5px;
       }
 
+      .thum_image img {
+        width: 100%;
+      }
+
       .btn{
           border: 1px solid chocolate;
           padding: 2px;
@@ -78,7 +82,6 @@
 <% @posts.each do |post| %>
   <article>
     <div class="article_controler">
-
       <% if post.use_yn == 'Y' %>
         <%= link_to "미노출", toggle_use_yn_post_admin_path(post), class: 'btn' %>
       <% else %>
@@ -87,13 +90,10 @@
 
       <%= link_to '상세보기', post_admin_path(post), class: 'btn' %>
       <%= link_to '수정하기', edit_post_admin_path(post), class: 'btn'  %>
-
     </div>
-    <div> <%= post.til_id %>(<%= post.use_yn %>) </div>
-    <div><img src="<%= post&.thumbnail_image %>" alt=""> </div>
+    <div class="thum_image"><img src="<%= post&.thumbnail_image %>" alt=""> </div>
     <div> <%= post.title %> </div>
-    <div> <%= post.user_id %> </div>
-    <div>  <%= sanitize post.content %> </div>
+    
     <div> 생성일 <%= post.created_at&.strftime('%Y-%m-%d') %> </div>
   </article>
 <% end %>

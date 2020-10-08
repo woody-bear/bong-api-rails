@@ -1,10 +1,77 @@
+<head>
+<style>
+      a:link {text-decoration: none; color: midnightblue;}
+      a:visited {text-decoration: none; color: midnightblue;}
+      a:active {text-decoration: none; color: midnightblue;}
+      a:hover {text-decoration: none; color: midnightblue;}
+
+      header{
+          margin: 10px 5px;
+          padding: 10px 5px;
+          border: 1px solid #730E15;
+          padding: 10px;
+      }
+
+      section {
+          margin: 10px 5px;
+          padding: 10px 5px;
+          border: 1px solid black;
+          border-radius: 10px;
+      }
+
+      .section_title {
+          font-size: 40px;
+      }
+
+
+      article{
+          border: 1px solid saddlebrown ;
+          border-radius: 10px;
+          margin: 10px 5px;
+          padding: 10px 5px;
+      }
+
+      .thum_image img {
+        width: 100%;
+      }
+
+      .btn{
+          border: 1px solid chocolate;
+          padding: 2px;
+      }
+
+      .article_controler{
+          /*border: 1px solid palevioletred;*/
+          margin: 5px 0 5px 0;
+      }
+
+      li {
+          list-style: none;
+      }
+
+      footer {
+          border: 1px solid saddlebrown ;
+          border-radius: 5px;
+          margin: 10px 5px;
+          padding: 10px 5px;
+      }
+
+      .colorscripter-code {
+        display: grid;
+      }
+  </style>
+
+
+</head>
   <%= link_to "Back", :back %>
   <%= link_to '목록보기', post_index_path %>
   <header>
     상세보기
   </header>
   <section>
-    <img src="<%= @post&.thumbnail_image %>" alt=""></div>
+    <div class="thum_image">
+      <img src="<%= @post&.thumbnail_image %>" alt=""></div>
+    </div>
   </section>
   <section>
     <%= @post.title %>
