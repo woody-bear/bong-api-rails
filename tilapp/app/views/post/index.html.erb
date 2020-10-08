@@ -50,6 +50,11 @@
         padding: 10px 5px;
     }
 
+    .thum_image img {
+        width: 100%;
+    }
+
+
     .btn{
         border: 1px solid chocolate;
         padding: 2px;
@@ -85,7 +90,7 @@
     <article>
       <div class="article_controler">
       </div>
-      <div><img src="<%= post&.thumbnail_image %>" alt=""> </div>
+      <div class="thum_image"><img src="<%= post&.thumbnail_image %>" alt=""> </div>
       <div> <%= post.title %> </div>
       <div> 생성일 <%= post.created_at&.strftime('%Y-%m-%d') %> </div>
       <div> <%= link_to '상세보기', post_path(post), class: 'btn' %></div>
