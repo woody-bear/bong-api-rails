@@ -1,0 +1,20 @@
+<header>
+  <%= link_to '뒤로가기', :back %>
+  <%= link_to '메인', serise_index_path %>
+</header>
+
+<h1>Serise#show</h1>
+<p>Find me in app/views/serise/show.html.erb</p>
+
+<section class="title">
+  <%= @serise.series_name %>
+</section>
+<article>
+  <div><%= @serise.series_name %></div>
+  <div><%= @serise.description %></div>
+  <div><%= @serise.complete_expectation_day %></div>
+  <div><%= @serise.sort_order %></div>
+  <div><%= @serise.created_at %></div>
+</article>
+
+

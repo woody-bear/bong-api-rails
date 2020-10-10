@@ -1,0 +1,43 @@
+
+
+<h1>Serise#index</h1>
+<p>Find me in app/views/serise/index.html.erb</p>
+<section class="title"">
+  시리즈 목록
+</section class>
+
+<% @serises.each do |t| %>
+  <article>
+
+    <div><%= t.series_id %></div>
+
+    <%= link_to serise_path(t) do %>
+      <div><%= t.series_name %></div>
+    <% end %>
+
+    <div><%= t.series_name %></div>
+    <div><%= t.description %></div>
+    <div><%= t.complete_expectation_day %></div>
+    <div><%= t.sort_order %></div>
+    <div><%= t.created_at %></div>
+  </article>
+<% end %>
+
+<section class="title">
+  글 목록
+</section>
+<% @posts.each do |t| %>
+    <article>
+
+      <div><%= t.til_id %></div>
+      <div><%= t.user_id %></div>
+      <div><%= t.title %></div>
+      <div><%= t.content %></div>
+      <div><%= t.thumbnail_image %></div>
+      <div><%= t.created_at %></div>
+      <div><%= t.til_id %></div>
+      <div><%= t.til_id %></div>
+
+
+    </article>
+<% end %>

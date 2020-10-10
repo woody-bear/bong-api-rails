@@ -10,4 +10,5 @@ class Post < ApplicationRecord
     # use_yn 노출여부
     # created_at 작성일
     # updated_at 수정일
+    has_many :serise, dependent: :destroy, foreign_key: "til_id"
 end
